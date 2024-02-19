@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+    <script>
+        let TableUsers;
+        const fetchUserData = async () => {
+            try {
+                let users = await fetch("https://dummyjson.com/users");
+                if (users.ok) {
+                    console.log(users.ok)
+                    let data = await users.json();
+                    user = data.users;
+                    return user
+                }
+                else {
+                    throw new Error('Something wrong ')
+                }
+
+            }
+            catch (err) {
+                console.log(err)
+            }
+        };
+        fetchUserData().then(res => {
+            let users = res;
+            const processUserData = () => {
+                // filter
+                let ArrayGender = users.filter((index) => {
+                    return index.gender == 'male';
+                })
+
+                // map
+                let stringArray = [];
+                ArrayGender.map((item, index) => {
+                    stringArray.push(`name : ${item.firstName} , age : ${item.age}`)
+                })
+            }
+            
+            processUserData()
+
+            // reduce 
+            let TotalAge = 0;
+            const summarizeAge = () => {
+                let ArrayGender = users.filter((index) => {
+                    return index.gender == 'male';
+                })
+                let r = ArrayGender.reduce((initState, item) => {
+                    return initState + item.age
+                }, 0)
+                TotalAge = r;
+            }
+            summarizeAge();
+            return TotalAge;
+        }).then((res) => console.log(`The Total Age is : ${res}`));
+    </script>
+</body>
+
+</html>
