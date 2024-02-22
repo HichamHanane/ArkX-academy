@@ -90,6 +90,15 @@ app.delete('/products/:id', (req, res) => {
     res.send(products)
 })
 
+app.use((req,res,next)=>{
+    const error = new Error(`Not found ${req.originalUrl}`);
+    res.status(404);
+    next(error)
+});
 
+app.use((err,req,res,next)=>{
+    const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
+    res.status(statusCode).json({message:err.message});
+})
 
 app.listen(5050)
