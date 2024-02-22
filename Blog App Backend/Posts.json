@@ -1,1 +1,8 @@
-[{"id":1,"title":"Building a RESTful API ","content":"REST (Representational State Transfer) is an architectural style for designing networked applications...","author":"hicham"}]
+[
+    {
+        "id": 1,
+        "title": " Express",
+        "content": "REST (Representational State Transfer) is an architectural style for designing networked applications...",
+        "author": "hnn "
+    }
+]
