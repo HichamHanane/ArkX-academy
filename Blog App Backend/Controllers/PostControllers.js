@@ -93,63 +93,63 @@ const Delete = (req, res) => {
 // }
 
 // SESSION AND COOKIES
-// const signup = (req, res) => {
-//     let allUsers = getUsers();
+const signup = (req, res) => {
+    let allUsers = getUsers();
 
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//         errors.array().forEach(err => {
-//             res.status(400).send(err.msg);
-//         })
-//     }
-//     else {
-//         let user = {
-//             id: allUsers.length + 1,
-//             username: req.body.username,
-//             password: bcrypt.hashSync(req.body.password, 10)
-//         }
-//         allUsers.push(user)
-//         AddUser(allUsers);
-//     }
-// }
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        errors.array().forEach(err => {
+            res.status(400).send(err.msg);
+        })
+    }
+    else {
+        let user = {
+            id: allUsers.length + 1,
+            username: req.body.username,
+            password: bcrypt.hashSync(req.body.password, 10)
+        }
+        allUsers.push(user)
+        AddUser(allUsers);
+    }
+}
 
-// const login = (req, res) => {
-//     let users = getUsers()
-//     const errors = validationResult(req);
-//     if (!errors.isEmpty()) {
-//         errors.array().forEach(err => {
-//             res.status(400).send(err.msg);
-//         })
-//     }
-//     else {
-//         // let hashpassword = bcrypt.hashSync("dfhvdgh",10)
-//         // let isMatch =  bcrypt.compareSync(password,hashpassword)
-//         let username = req.body.username;
-//         let password = req.body.password;
-//         let uniqueId = req.session.id;
-//         let indexOfUser;
-//         let searchForUser = users.find((user, index) => {
-//             indexOfUser = index;
-//             return user.username == username && bcrypt.compareSync(password, user.password) == true;
-//         })
-//         if (searchForUser) {
-//             req.session.isAuth = true;
-//             searchForUser['session_id'] = uniqueId;
-//             req.session.active = true;
-//             console.log(req.session);
-//             users.splice(indexOfUser, 1, searchForUser);
-//             res.cookie('session_cookie', uniqueId);
-//             AddSession_Id(users)
-//             res.json(req.cookies['connect.sid'])
-//         }
-//         else {
-//             res.status(401).json("Username or password invalid")
-//         }
+const login = (req, res) => {
+    let users = getUsers()
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        errors.array().forEach(err => {
+            res.status(400).send(err.msg);
+        })
+    }
+    else {
+        // let hashpassword = bcrypt.hashSync("dfhvdgh",10)
+        // let isMatch =  bcrypt.compareSync(password,hashpassword)
+        let username = req.body.username;
+        let password = req.body.password;
+        let uniqueId = req.session.id;
+        let indexOfUser;
+        let searchForUser = users.find((user, index) => {
+            indexOfUser = index;
+            return user.username == username && bcrypt.compareSync(password, user.password) == true;
+        })
+        if (searchForUser) {
+            req.session.isAuth = true;
+            searchForUser['session_id'] = uniqueId;
+            req.session.active = true;
+            console.log(req.session);
+            users.splice(indexOfUser, 1, searchForUser);
+            res.cookie('session_cookie', uniqueId);
+            AddSession_Id(users)
+            res.json(req.cookies['connect.sid'])
+        }
+        else {
+            res.status(401).json("Username or password invalid")
+        }
 
 
-//         //searchForUser ?  AddSession_Id(users): res.status(401).json("Username or password invalid")
-//     }
-// }
+        //searchForUser ?  AddSession_Id(users): res.status(401).json("Username or password invalid")
+    }
+}
 
 // protected route
 
