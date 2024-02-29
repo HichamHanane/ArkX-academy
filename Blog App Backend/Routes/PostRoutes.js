@@ -10,10 +10,10 @@ router.route('/').get(getAllPost);
 // ROUTE OF JTW 
 //router.post('/login',[check('username').exists().withMessage('usernam is required'),check('password').exists().withMessage('password is required')],login);
 
-//Route of sessions and cookies
-// router.post('/signup',[check('username').exists().withMessage('usernam is required'),check('password').exists().withMessage('password is required')],signup);
-// router.post('/login',[check('username').exists().withMessage('usernam is required'),check('password').exists().withMessage('password is required')],login);
-// router.get('/logout',Logout);
+// Route of sessions and cookies
+router.post('/signup',[check('username').exists().withMessage('usernam is required'),check('password').exists().withMessage('password is required')],signup);
+router.post('/login',[check('username').exists().withMessage('usernam is required'),check('password').exists().withMessage('password is required')],login);
+router.get('/logout',Logout);
 
 
 
@@ -22,12 +22,12 @@ router.get('/home',Home);
 
 
 //Routes for passport
-router.post('/login',[check('username').exists().withMessage('usernam is required'),check('password').exists().withMessage('password is required')],passport.passport.authenticate('local',{
-    successRedirect :'/home',
-    failureRedirect : '/login',
-    failureFlash : true
+// router.post('/login',[check('username').exists().withMessage('usernam is required'),check('password').exists().withMessage('password is required')],passport.passport.authenticate('local',{
+//     successRedirect :'/home',
+//     failureRedirect : '/login',
+//     failureFlash : true
     
-}));
+// }));
 
 
 
