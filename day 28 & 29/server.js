@@ -81,7 +81,7 @@ app.post('/updatePrice/:name',async(req,res)=>{
 })
 // QUERY 3
 app.get('/deleteExpDate',async(res,req)=>{
-  let dateNow = new Date()
+  let dateNow = new Date();
  let deleteCount =  (await Product.deleteMany({expirationDate:{$lte:dateNow}})).deletedCount;
  console.log(deleteCount);
 })

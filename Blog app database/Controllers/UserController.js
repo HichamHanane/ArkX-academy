@@ -70,6 +70,11 @@ const getUsers = (req,res)=>{
         }
     })
 }
+
+const Logout =(req,res)=>{
+    
+    
+}
 // const test = async(req,res)=>{
 //     let user = await User.findOne({email:req.body.email})
 //     // let password = 'hnn';
@@ -80,4 +85,4 @@ const getUsers = (req,res)=>{
 
 // }
 
-module.exports = { AddUser , login , getUsers };
+module.exports = { AddUser , login , getUsers , Logout };
