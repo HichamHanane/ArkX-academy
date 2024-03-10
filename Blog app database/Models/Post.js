@@ -4,12 +4,9 @@ const schema = mongoose.Schema;
 const User = require('./User');
 
 const PostSchema = new schema({
-    title: String,
+    title: {type : String , required:true },
     description: String,
-    author:{
-        type : mongoose.SchemaTypes.ObjectId,
-        ref:'User',
-    }
+    author:String
 },
 {
     timestamps : true
