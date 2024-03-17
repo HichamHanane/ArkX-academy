@@ -1,0 +1,269 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(20, 27, 51);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: blanchedalmond;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 15px;
+}
+header nav{
+    display: flex ;
+    gap: 1rem;
+    align-items: center;
+}
+nav ul{
+    display: flex;
+}
+nav ul li{
+    list-style: none;
+    margin-left: 20px;
+    
+
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 1em;
+    color: aquamarine;
+    transition: 0.4s ease-in;
+}
+nav ul li a:hover{
+    color: blueviolet;
+}
+header .logo{
+    font-size: 2rem;
+    font-weight: bolder;
+    
+}
+header .logo a{
+    text-decoration: none;
+    color: blueviolet;
+}
+
+
+.righ-side{
+    display:flex;
+    gap: 0.5rem;
+}
+.righ-side #inputSearch{
+    background: transparent;
+    border: 1.8px solid rgba(245, 245, 245, 0.589);
+    padding: 7px;
+    border-radius: 8px;
+    
+}
+#inputSearch::placeholder{
+    font-weight: bolder;
+    letter-spacing: 0.1rem;
+}
+.righ-side select{
+    background: transparent;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+.righ-side select option{
+    color: black;
+}
+.righ-side button{
+    background-color: blueviolet;
+    color: whitesmoke;
+    font-weight: bold;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    text-transform: capitalize;
+}
+
+.righ-side button a{
+    text-decoration: none;
+    color: aliceblue;
+}
+.section-hero video{
+    position: relative;
+    object-fit:cover;
+    height: 90vh;
+}
+
+
+.info{
+    position: absolute;
+    top: 200px;
+    margin-left: 30px;
+}
+.info h3{
+    text-decoration: none;
+    color: blueviolet;
+    font-size: 1em;
+}
+.info h1{
+    font-size: 3.5rem;
+}
+#description{
+    width: 700px;
+    font-size: 0.8em;
+    font-weight: lighter;
+    text-align: justify;
+}
+.information{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 15px;
+}
+.information p{
+    font-weight: bold;
+}
+.information p:nth-child(4){
+    background-color: rgb(85, 88, 88);
+    padding: 8px;
+    border-radius: 10px;
+    font-size: 0.7em;
+    align-self: center;
+    border: none;
+}
+.info .button{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 20px;
+}
+.info .button a{
+    text-decoration: none;
+    color: bisque;
+    font-size: 18px;
+}
+.info .button p:nth-child(1){
+    background-color: blueviolet;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+    transition: 0.4s;
+}
+.info .button p:nth-child(1):hover{
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid wheat;
+}
+.Heading-Trending{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    margin-bottom: 20px;
+}
+.Heading-Trending a{
+    text-decoration: none;
+    color: blueviolet;
+    font-weight: bold;
+    font-size: 0.7em;
+}
+.TrendingMovies{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 60px;
+}
+.movie img{
+    border-radius: 10px;
+    height: 400px;
+}
+
+.movie-detail{
+    display: flex;
+    gap: 1rem;
+}
+.movie-detail div p{
+    background-color: rgb(85, 88, 88);
+   color: whitesmoke;
+   padding: 5px;
+   border-radius: 6px;
+    font-size: 0.5em;
+}
+.movie-detail div{
+    text-align: center;
+}
+.genre{
+    display: flex;
+    align-items: center;
+    gap:1rem;
+    margin-top: 10px;
+}
+.genre p{
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(50, 56, 78);
+
+}
+footer .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    
+}
+footer .logo {
+    text-decoration: none;
+    color: whitesmoke;
+}
+footer .footer{
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+.social-media{
+    display: flex;
+    gap: 0.8rem;
+    width: 300px;
+    margin-top: 10px;
+}
+.social-media img{
+    width: 5%;
+}
+.help h5{
+    margin-bottom: 10px;
+}
+.help ul li{
+    list-style: none;
+    font-size: 0.8em;
+}
+.help ul{
+    line-height: 30px;
+    text-align: justify;
+}
+.CopyRight{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 0.5em;
+}
+
+.policy-terms{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    
+}
+
+

@@ -1,0 +1,229 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(20, 27, 51);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: blanchedalmond;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 15px;
+}
+header nav{
+    display: flex ;
+    gap: 1rem;
+    align-items: center;
+}
+nav ul{
+    display: flex;
+}
+nav ul li{
+    list-style: none;
+    margin-left: 20px;
+    
+
+}
+nav ul li a{
+    text-decoration: none;
+    font-size: 1em;
+    color: aquamarine;
+    transition: 0.4s ease-in;
+}
+nav ul li a:hover{
+    color: blueviolet;
+}
+header .logo{
+    font-size: 2rem;
+    font-weight: bolder;
+    
+}
+header .logo a{
+    text-decoration: none;
+    color: blueviolet;
+}
+
+
+.righ-side{
+    display:flex;
+    gap: 0.5rem;
+}
+.righ-side #inputSearch{
+    background: transparent;
+    border: 1.8px solid rgba(245, 245, 245, 0.589);
+    padding: 7px;
+    border-radius: 8px;
+    
+}
+#inputSearch::placeholder{
+    font-weight: bolder;
+    letter-spacing: 0.1rem;
+}
+.righ-side select{
+    background: transparent;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+.righ-side select option{
+    color: black;
+}
+.righ-side button{
+    background-color: blueviolet;
+    color: whitesmoke;
+    font-weight: bold;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
+    text-transform: capitalize;
+}
+.righ-side button a{
+    text-decoration: none;
+    color: aliceblue;
+}
+.Pricing-Plan{
+    margin-top: 90px;
+}
+.heading{
+    text-align: center;
+}
+.heading h1{
+    font-size: 3em;
+}
+.heading p{
+    font-size: 0.7em;
+    font-weight: lighter;
+}
+
+.plans{
+    margin: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.plan{
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-basis:300px;
+    flex-shrink: 0;
+
+    border: 1px solid rgb(197, 145, 245);
+    border-radius: 10px;
+    padding: 10px;
+}
+.plan h5{
+    text-align: center;
+    font-size: 1.5em;
+}
+.plan h6{
+    text-align: center;
+    font-size: 1em;
+    font-weight: lighter;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.plan button{
+    width: 100%;
+    padding: 10px;
+    margin: 30px 0;
+    background: transparent;
+    border: 1px solid rgb(69, 57, 241);
+    color: rgb(69, 57, 241);
+    border-radius: 10px;
+}
+.advantage{
+    padding: 20px;
+    line-height: 28px;
+    width: 100%;
+}
+.advantage p{
+    font-size: 0.7em;
+    font-weight: bolder;
+}
+
+.advantage p::before{
+    content: "✔️";
+    margin-right: 7px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    width: 100%;
+    background-color: rgb(50, 56, 78);
+    margin-top: 50px;
+}
+footer .logo{
+    font-size: 2.5rem;
+    font-weight: bolder;
+    
+}
+footer .logo {
+    text-decoration: none;
+    color: whitesmoke;
+}
+footer .footer{
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+.social-media{
+    display: flex;
+    gap: 0.8rem;
+    width: 300px;
+    margin-top: 10px;
+}
+.social-media img{
+    width: 5%;
+}
+.help h5{
+    margin-bottom: 10px;
+}
+.help ul li{
+    list-style: none;
+    font-size: 0.8em;
+}
+.help ul{
+    line-height: 30px;
+    text-align: justify;
+}
+.CopyRight{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 0.5em;
+}
+
+.policy-terms{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    
+}
