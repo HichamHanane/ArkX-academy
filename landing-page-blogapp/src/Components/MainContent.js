@@ -1,0 +1,66 @@
+import { useState } from "react";
+import AddForm from "./AddForm";
+import UpdateForm from "./UpdateForm";
+
+
+
+function MainContent({posts , setPosts}) {
+    // console.log(props.posts.length);
+    let [addPost, SetAddPost] = useState(true);
+    let [indexUpdated , setIndex] =useState();
+    // let [updatedPost , setUpdatedPost]=useState()
+    const update =(i)=>{
+        SetAddPost(false)
+        setIndex(i)
+    }
+    const del =(i)=>{
+        let filterPosts = posts.filter((p,index)=> index != i );
+        setPosts(filterPosts);
+    }
+
+    return (
+        <div className="content container mt-4">
+            <h1>Welcom To my blog app</h1>
+            {
+                posts.length != 0 ?
+                    <table className="table table-bordered">
+                        <tr className="bg-secondary">
+                            <th className="p-2">Title</th>
+                            <th className="p-2">ID</th>
+                            <th className="p-2">Description</th>
+                            <th></th>
+                            <th></th>
+                            
+                        </tr>
+                        {
+                            posts.map((p, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{index}</td>
+                                        <td>{p.title}</td>
+                                        <td>{p.description}</td>
+                                        <td>
+                                            <button className="btn btn-primary" onClick={()=>update(index)}>Update</button>&nbsp;
+                                        </td>
+                                        <td>
+                                        <button className="btn btn-danger" onClick={()=>del(index)}>Delete</button>&nbsp;
+
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </table>
+                    : <div style={{ textAlign: "center", color: "red", marginTop: "100px" }}>
+                        <h5>No posts available</h5>
+                    </div>
+            }
+            <br/><br/>
+            {
+                addPost ? <AddForm posts={posts} setPosts={setPosts} /> : <UpdateForm posts={posts} setAddPost={SetAddPost} index={indexUpdated}/>
+            }
+
+        </div>
+    )
+}
+export default MainContent;
