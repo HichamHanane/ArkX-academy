@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plaster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    overflow-x: hidden;
+}
+
+/* HEADER */
+.respo-menu{
+    display: none;
+}
+.resp-header{
+    display: none;
+}
+
+.header{
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 80px;
+    background-color: #1E1F41;
+    font-family: "Poppins", sans-serif;
+    animation: change-backgroundColor 4s infinite ease-in-out ;
+}
+/* @keyframes change-backgroundColor {
+    0%{
+        background-color: #1E1F41;
+    }
+    30%{
+        background-color: #393e74;
+    }
+    60%{
+        background-color: #303352;
+    }
+    100%{
+        background-color: #1E1F41;
+    }
+} */
+.header .navLinks-button {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.header .logo h1{
+    color: #7884F1;
+    font-family: "Plaster", system-ui;
+    font-weight: 400;
+}
+.header nav ul{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
+
+.header nav ul li a{
+    text-decoration: none;
+    color: white;
+    transition: 0.7s;
+}
+.header nav ul li a:hover{
+    color: #7884F1;
+}
+.navLinks-button .header-button button{
+    background-color: #7884F1;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 0.7em;
+    transition: 1s ease-in-out;
+}
+.navLinks-button .header-button button:hover{
+    background-color: transparent;
+    /* border: 1px solid white; */
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5)
+
+}
+
+
+
+
+/* SECTION PROJECTS */
+
+.projects{
+    position: absolute;
+    z-index: 5;
+    height: 88.8vh;
+}
+
+.project-above-box{
+    position: relative;
+    z-index: 6;
+    height: 88.8vh;
+    background-color: #7884f157;
+    backdrop-filter: blur(15px);
+    cursor: pointer;
+    /* animation: scale-up 2s ease-in-out forwards; */
+}
+.project-above-box i{
+    position: relative;
+    top: 35%;
+    z-index: 8;
+    color: #191E47;
+    cursor: pointer;
+}
+.project-above-box h1{
+    position: relative;
+    top: 40%;
+    left: 40%;
+    font-family: "Michroma", sans-serif;
+    color: #191E47;
+    letter-spacing: 0.3rem; 
+    text-shadow: 1px 1px 4px #7884F1;
+    text-transform: uppercase;
+}
+.slide-animation{
+    animation: slide 2s ease-in-out forwards;
+}
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(1400px);
+
+    }
+}
+.projects h1{
+    font-family: "Michroma", sans-serif;
+    color: #7884F1;
+    letter-spacing: 0.3rem;
+    margin-top: 40px;
+    margin-left: 60px;
+}
+.myProjects{
+    padding:50px 100px;
+    display: grid;
+    grid-template-columns: 40% 1fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    
+}
+.items{
+    cursor: pointer;
+}
+.item1{
+    background-color: #1E1F41;
+    grid-row: 1/3;
+    height: 100%;
+    background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/images/unnamed\ \(1\).jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(8, 8, 8, 0.5);
+}
+.item2{
+    grid-column: 2/4;
+    background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/images/WhatsApp\ Image\ 2023-09-05\ at\ 2.56.17\ PM\ \(4\).jpeg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(8, 8, 8, 0.5);
+}
+.item3{
+    grid-column: 2/3;
+    border-radius: 10px;
+    /* height: 100%; */
+    background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/images/logo\ yellow.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 4px 6px -1px rgba(8, 8, 8, 0.5);
+}
+.item4{
+    background-color: black;
+    background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url(/images/Gold\ White\ and\ Black\ Simple\ Restaurant\ Logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgba(8, 8, 8, 0.5);
+}
+.item1 .project-description{
+    border-radius: 10px;
+    opacity: 0;
+    padding: 20px;
+    transition: 1s ease-in-out;
+}
+.item1:hover .project-description{
+    background-color: #1e1f418e;
+    opacity: 1;
+    height: 100%;
+}
+
+.item2 .project-description{
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+.item2:hover .project-description{
+    background-color: #1e1f418e;
+    opacity: 1;
+}
+.item3 .project-description{
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+.item3:hover .project-description{
+    background-color: #1e1f418e;
+    opacity: 1;
+}
+.item4 .project-description{
+    padding: 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+.item4:hover .project-description{
+    background-color: #1e1f418e;
+    opacity: 1;
+}
+
+.items .project-description h2{
+    color: #7884F1;
+    font-family: "Michroma", sans-serif;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+}
+
+.items .project-description p{
+    color: whitesmoke;
+    font-family: 'Poppins';
+    font-size: 0.7em;
+    text-align: justify;
+}
+.project-description button{
+    background-color: #7884F1;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Poppins';
+    font-weight: bold;
+    font-size: 0.7em;
+    transition: 1s ease-in-out;
+}
+.project-description button:hover{
+    background-color: transparent;
+    /* border: 1px solid white; */
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 1)
+
+}
+.project-description{
+    height: 100%;
+}
+.project-description i{
+    font-size: 1.6rem;
+    animation: rotate 2s infinite linear;
+}
+.description-icons{
+    display: flex;
+    gap: 1rem;
+}
+
+.about{
+    background-color: aqua;
+    height: 88.8vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.about i{
+    animation: slide-left 7s infinite;
+    
+}
+@keyframes slide-left  {
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translateX(1400px);
+    }
+}
+@keyframes rotate {
+    from{
+        transform: rotateY(0deg);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}
+.myProjects h1{
+    display: none;
+}
+
+
+
+@media screen and (max-width:400px) {
+    body{
+        height: 100vh;
+    }
+    .header{
+        /* width: 100%; */
+        display: none;
+    }
+    .resp-header{
+        display: block;
+        height: 80px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 80px;
+        background-color: #1E1F41;
+        font-family: "Poppins", sans-serif;
+        animation: change-backgroundColor 4s infinite ease-in-out ;
+    }
+    .resp-header .logo h1{
+        color: #7884F1;
+        font-family: "Plaster", system-ui;
+        font-weight: 400;
+    }
+    .resp-header div  i{
+        font-size:30px;
+    }
+
+    .respo-menu nav{
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .respo-menu nav p{
+        color: #fdfdfd;
+        /* background-color: #1E1F41; */
+        padding: 20px;
+        font-family: 'Poppins';
+        text-transform: uppercase;
+        transition: 0.7s;
+        /* filter: drop-shadow(0 0 20px #fff); */
+    }
+    .respo-menu nav p:hover{
+        transform: translateX(10px);
+    }
+    .respo-menu nav p i{
+        color: #7884F1;
+    }
+
+    .respo-menu-animation{
+        animation : respo-menu 2s ease-in-out forwards;
+
+    }
+    @keyframes respo-menu {
+        from{
+            transform: translateY(-700px);
+        }
+        to{
+            transform: translateY(0px);
+        }
+    }
+    .respo-menu{
+        display: block;
+        position:absolute;
+        background-color: #0f1122;
+        height: 100vh;
+        width: 100%;
+        z-index: 5;
+        transform: translateY(-700px);
+        /* animation : respo-menu 2s ease-in-out forwards; */
+    }
+    .respo-menu header{
+        padding: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .respo-menu header h2{
+        color: #7884F1;
+        font-family: "Plaster", system-ui;
+        font-weight: 400;
+        font-size: 2rem;
+    }
+
+    .project-above-box{
+        display: none;
+    }
+    .myProjects {
+        /* padding:50px 100px; */
+        display: block;
+        /* grid-template-columns: 40% 1fr 1fr ;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px; */
+        padding: 15px;
+    }
+    .myProjects div{
+        margin-top: 50px;
+    }
+    .myProjects h1{
+        font-size: 1.5rem;
+        display: block;
+        padding-left: 5px;
+    }
+}
