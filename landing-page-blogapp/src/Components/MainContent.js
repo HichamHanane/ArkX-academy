@@ -4,17 +4,17 @@ import UpdateForm from "./UpdateForm";
 
 
 
-function MainContent({posts , setPosts}) {
+function MainContent({ posts, setPosts, auth }) {
     // console.log(props.posts.length);
     let [addPost, SetAddPost] = useState(true);
-    let [indexUpdated , setIndex] =useState();
+    let [indexUpdated, setIndex] = useState();
     // let [updatedPost , setUpdatedPost]=useState()
-    const update =(i)=>{
+    const update = (i) => {
         SetAddPost(false)
         setIndex(i)
     }
-    const del =(i)=>{
-        let filterPosts = posts.filter((p,index)=> index != i );
+    const del = (i) => {
+        let filterPosts = posts.filter((p, index) => index != i);
         setPosts(filterPosts);
     }
 
@@ -30,7 +30,7 @@ function MainContent({posts , setPosts}) {
                             <th className="p-2">Description</th>
                             <th></th>
                             <th></th>
-                            
+
                         </tr>
                         {
                             posts.map((p, index) => {
@@ -40,10 +40,15 @@ function MainContent({posts , setPosts}) {
                                         <td>{p.title}</td>
                                         <td>{p.description}</td>
                                         <td>
-                                            <button className="btn btn-primary" onClick={()=>update(index)}>Update</button>&nbsp;
+                                            {
+                                                auth ? <button className="btn btn-primary" onClick={() => update(index)}>Update</button> : null
+                                            }
                                         </td>
                                         <td>
-                                        <button className="btn btn-danger" onClick={()=>del(index)}>Delete</button>&nbsp;
+                                            {
+
+                                                auth ? <button className="btn btn-danger" onClick={() => del(index)}>Delete</button> : null 
+                                            }
 
                                         </td>
                                     </tr>
@@ -55,9 +60,9 @@ function MainContent({posts , setPosts}) {
                         <h5>No posts available</h5>
                     </div>
             }
-            <br/><br/>
+            <br /><br />
             {
-                addPost ? <AddForm posts={posts} setPosts={setPosts} /> : <UpdateForm posts={posts} setAddPost={SetAddPost} index={indexUpdated}/>
+                addPost ? null : <UpdateForm posts={posts} setAddPost={SetAddPost} index={indexUpdated} />
             }
 
         </div>

@@ -1,16 +1,16 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
 function Header(props){
-    let [isLogged,setIsLogged]=useState(true);
+    let navigate= useNavigate()
     const login = ()=>{
-        setIsLogged(false)
-        console.log('hello');
+        // props.setAuth(true)
+        navigate('/login')
     }
     const logout = ()=>{
-        setIsLogged(true)
-        console.log('hello');
+        props.setAuth(false)
     }
     return(
         <div className="header" style={{backgroundColor:props.style.backgroundColor , color:props.style.color}}>
@@ -20,16 +20,15 @@ function Header(props){
             <nav className="nav-links">
                 <ul>
                     {
-                        props.menu.map((m,index)=>{
-                            return(
-                                <li key={index}>{m.name}</li>
-                            )
-                        })
+                        props.menu.map((m,index)=>
+                                <li key={index}><Link to={m.path}>{m.name}</Link> </li>
+
+                        )
                     }
                 </ul>
             </nav>
             {
-                isLogged ? <button className="btn btn-outline-info" onClick={login}>Login</button> : <button className="btn btn-outline-danger" onClick={logout}>logout</button>
+                !props.auth ? <button className="btn btn-outline-info" onClick={login}>Login</button> : <button className="btn btn-outline-danger" onClick={logout}>logout</button>
             }
             
         </div>
