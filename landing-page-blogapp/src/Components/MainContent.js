@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AddForm from "./AddForm";
 import UpdateForm from "./UpdateForm";
+import { ThemeContext } from "../App";
 
 
 
@@ -17,9 +18,9 @@ function MainContent({ posts, setPosts, auth }) {
         let filterPosts = posts.filter((p, index) => index != i);
         setPosts(filterPosts);
     }
-
+     let {theme} = useContext(ThemeContext)
     return (
-        <div className="content container mt-4">
+        <div className="content " style={{backgroundColor:theme.background , color:theme.color, width:"100"}}>
             <h1>Welcom To my blog app</h1>
             {
                 posts.length != 0 ?

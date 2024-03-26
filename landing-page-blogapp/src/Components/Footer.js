@@ -1,18 +1,17 @@
+import { useContext } from "react";
+import { ThemeContext } from "../App";
 
 
 
 function Footer(){
+    let {theme} = useContext(ThemeContext)
     return(
-        <div className="footer">
-            <div className="logo">
+        <div className="footer" style={{backgroundColor:theme.background}}>
+            <div className="logo" >
                 <h1>BlogApp</h1>
             </div>
             <nav className="nav-links">
-                <ul>
-                    <li>Home</li>
-                    <li>Posts</li>
-                    <li>Add Post</li>
-                </ul>
+
             </nav>
         </div>
     )

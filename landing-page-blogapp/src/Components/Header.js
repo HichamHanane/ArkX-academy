@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { ThemeContext } from "../App";
 
 
 
@@ -12,8 +13,9 @@ function Header(props){
     const logout = ()=>{
         props.setAuth(false)
     }
+    let {theme} = useContext(ThemeContext)
     return(
-        <div className="header" style={{backgroundColor:props.style.backgroundColor , color:props.style.color}}>
+        <div className="header" style={{backgroundColor:theme.background, color:theme.color}}>
             <div className="logo">
                 <h1>{props.blogTitle}</h1>
             </div>
@@ -30,7 +32,6 @@ function Header(props){
             {
                 !props.auth ? <button className="btn btn-outline-info" onClick={login}>Login</button> : <button className="btn btn-outline-danger" onClick={logout}>logout</button>
             }
-            
         </div>
     )
 }
