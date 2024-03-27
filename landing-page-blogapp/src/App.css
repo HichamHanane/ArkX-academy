@@ -21,7 +21,7 @@
 }
 .content{
   /* background-color: brown; */
-  height: 84vh;
+  /* height: 84vh; */
   padding: 20px;
 }
 .content h1{
@@ -30,6 +30,16 @@
 .content p{
   text-align: justify;
   margin-top: 20px;
+}
+
+.loading{
+  height: 84vh;
+  text-align: center;
+  color: antiquewhite;
+}
+.loading h6{
+  font-size: 3rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .footer{

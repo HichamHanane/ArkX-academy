@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useState } from 'react';
+import { createContext, useContext, useEffect, useReducer, useState } from 'react';
 import './App.css';
 import Footer from './Components/Footer';
 import Header from './Components/Header';
@@ -9,6 +9,7 @@ import AddForm from './Components/AddForm';
 import ProtectedRoute from './Components/ProtectedRoute';
 import LoginForm from './Components/LoginForm';
 import Signup from './Components/Signup';
+import { date, set } from 'zod';
 
 export const ThemeContext = createContext(
   {
@@ -19,16 +20,12 @@ export const ThemeContext = createContext(
 
 function App() {
   let [loggedIn, setLoggedIn] = useState(false)
+  let [isloading, setisLoading] = useState(true)
   let [menu_links, setMenu] = useState([
     { name: "Home", path: "/" },
     { name: "Add Post", path: "/newPost" }
   ])
-  let [posts, setPosts] = useState([
-    { title: "MongoDB", description: "description.............." },
-    { title: "React js", description: "description.............." },
-    { title: "Next js", description: "description.............." },
-    { title: "Node js", description: "description.............." },
-  ])
+  let [posts, setPosts] = useState([])
   let [headerStyle, setHeaderStyle] = useState({
     backgroundColor: "rgb(38, 15, 59)",
     color: "white",
@@ -39,21 +36,44 @@ function App() {
     { username: "hicham", email: "hicham@gmail.com", password: "hnn123456789" },
   ])
 
-  let { lightTheme , DarkTheme } = useContext(ThemeContext)
+  let { lightTheme, DarkTheme } = useContext(ThemeContext)
 
-  const reducer =(state , action)=>{
-    if(action.type == 'TOGGLE_THEME'){
+  const fetchPosts = async () => {
+    try {
+      let fecth = await fetch("/getPosts");
+      let data = await fecth.json();
+      console.log(data);
+      setPosts(data)
+    }
+    catch (err){
+      console.log(err.message);
+    }
+    finally{
+      setisLoading(false)
+    }
+
+
+    // .then(data => console.log(data))
+  }
+
+  useEffect(() => {
+    fetchPosts();
+  }, [])
+
+
+  const reducer = (state, action) => {
+    if (action.type == 'TOGGLE_THEME') {
       return state == DarkTheme ? lightTheme : DarkTheme
     }
   }
-  let [theme , dispatch] = useReducer(reducer , DarkTheme)
-  const toggleTheme = () => dispatch({type:'TOGGLE_THEME'});
+  let [theme, dispatch] = useReducer(reducer, DarkTheme)
+  const toggleTheme = () => dispatch({ type: 'TOGGLE_THEME' });
   return (
 
-    <ThemeContext.Provider value={{theme , toggleTheme}}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Home blogTitle={"Blog App"} menu={menu_links} style={headerStyle} posts={posts} setPosts={setPosts} auth={loggedIn} setAuth={setLoggedIn} />} />
+          <Route path="/" element={<Home blogTitle={"Blog App"} menu={menu_links} style={headerStyle} posts={posts} setPosts={setPosts} auth={loggedIn} setAuth={setLoggedIn} isLoading={isloading} />} />
           <Route path="/newPost" element={
             <ProtectedRoute auth={loggedIn}>
               <AddForm blogTitle={"Blog App"} menu={menu_links} style={headerStyle} posts={posts} setPosts={setPosts} auth={loggedIn} />
